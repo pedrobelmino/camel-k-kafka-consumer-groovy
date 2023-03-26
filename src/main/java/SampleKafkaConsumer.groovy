@@ -12,7 +12,7 @@ from("kafka:{{consumer.topic}}?brokers={{kafka.host}}:{{kafka.port}}"
             if(idade < 18){
                 it.out.body = [success: true, message: body]
             }else{
-                it.out.body = [success: false, message: body, msg:"É necessário ter pelo menos 18 anos"]
+                it.out.body = [success: false, message: body, msg:"É necessário ter pelo menos 18 anoss"]
             }
         }
         .to('log:info')
