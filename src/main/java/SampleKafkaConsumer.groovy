@@ -10,7 +10,7 @@ from("kafka:{{consumer.topic}}?brokers={{kafka.host}}:{{kafka.port}}"
             def body = it.in.body
             def idade = it.in.body["idade"]
             if(idade < 18){
-                it.out.body = [success: true, message: body]
+                it.out.body = [success: true, message: body, "msg":"Validação ok"]
             }else{
                 it.out.body = [success: false, message: body, msg:"É necessário ter pelo menos 18 anoss"]
             }
