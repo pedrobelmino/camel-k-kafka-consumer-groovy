@@ -10,7 +10,7 @@ LAB para uso do Kamel K - Kubernetes Kind + Groovy Script + Kafka + Strimzi(kafk
 
 **Recuperação do ip referente ao cluster kafka instalado através do Strimzi**
 ```bash
-kafkaip=`kubectl get svc/my-cluster-kafka-bootstrap -n kafka -ojsonpath="{.spec.clusterIP}"`; sed -i "/kafka\.host/s/<.*>/$kafkaip/g" application.properties
+kafkaip=`kubectl get svc/my-cluster-kafka-bootstrap -n kafka -ojsonpath="{.spec.clusterIP}"`; sed -i "/kafka\.host/s/<.*>/$kafkaip/g" src/main/resources/application.properties
 ```
 
 **Criação de configmap com configurações de acesso ao cluster Kafka**
