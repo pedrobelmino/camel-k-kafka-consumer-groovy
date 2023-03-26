@@ -8,11 +8,6 @@ from("kafka:{{consumer.topic}}?brokers={{kafka.host}}:{{kafka.port}}"
         .convertBodyTo(String.class, "UTF-8").unmarshal().json(org.apache.camel.model.dataformat.JsonLibrary.Jackson)
         .process {
             def body = it.in.body
-            def idade = it.in.body["idade"]
-            if(idade < 18){
-                it.out.body = [success: true, message: body, "msg":"Validação ok"]
-            }else{
-                it.out.body = [success: false, message: body, msg:"É necessário ter pelo menos 18 anoss"]
-            }
+            it.out.body = [success: true, message: body, "msg":"Validação ok"]
         }
         .to('log:info')
