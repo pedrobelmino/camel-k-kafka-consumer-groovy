@@ -13,7 +13,7 @@ LAB para uso do Kamel K - Kubernetes Kind + Groovy Script + Kafka + Strimzi(kafk
 kafkaip=`kubectl get svc/my-cluster-kafka-bootstrap -n kafka -ojsonpath="{.spec.clusterIP}"`; sed -i "/kafka\.host/s/<.*>/$kafkaip/g" application.properties
 ```
 
-**Criação de configmap com configurações de acesso ao cluster kubernetes**
+**Criação de configmap com configurações de acesso ao cluster Kafka**
 ```bash
 kubectl create configmap kafka.props  --from-file=src/main/resources/application.properties
 ```
